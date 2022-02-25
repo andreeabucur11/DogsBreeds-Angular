@@ -1,0 +1,16 @@
+.dog-image {
+    width:300px;
+    height: auto;
+}
+.breed{
+    text-transform: capitalize;
+}
+
+a {
+    color: black;
+}
+
+.sub-breed-comp {
+    position: fixed;
+    left: 15%;
+}

@@ -1,0 +1,20 @@
+ul {
+    columns: 3;
+    -webkit-columns: 3;
+    -moz-columns: 3;
+    list-style-position: inside;
+}
+
+.dogs-list {
+    position: relative;
+    left: 8%;
+    
+}
+
+ul li a {
+    text-transform: capitalize;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+

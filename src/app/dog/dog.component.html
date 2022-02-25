@@ -1,0 +1,17 @@
+<div class="breed-image">
+	<h1 class="breed">{{breed}}</h1>
+	<button class="all-dogs-button"  [routerLink]="['']">All dogs</button>
+	<img class="dog-image" src={{imagePath}} />
+</div>
+<br /><br />
+<div class="sub-breeds">
+	<h3 *ngIf="subBreeds.length">Sub-breeds</h3>
+	<ul>
+		<ng-container *ngFor="let subBreed of subBreeds">
+			<li>
+				<a [routerLink]="['/breed',breed, subBreed]">{{subBreed}}</a>
+			</li>
+		</ng-container>
+	</ul>
+	<br />
+</div>
