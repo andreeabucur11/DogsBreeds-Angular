@@ -18,7 +18,11 @@ export const AppRoutes: Routes = [
         component: SubBreedComponent
     },
     {
-        path:'**',
+        path: 'not-found',
         component: NotFoundComponent
+    },
+    {
+        path:'**',
+        redirectTo: "not-found"
     }
 ]
