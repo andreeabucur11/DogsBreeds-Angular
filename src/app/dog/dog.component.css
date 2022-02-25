@@ -1,33 +1,21 @@
 .dog-image {
-    width:300px; /* you can use % */
+    width:30vw;
     height: auto;
 
 }
 
-.breed {
-    text-transform: capitalize;
-}
-
 ul li a {
     text-transform: capitalize;
-    color: black;
     font-family: Arial, Helvetica, sans-serif;
     
+    
 }
-
-.breed-image{
-    position: relative;
-    left:15%;
-}
-
-.sub-breeds {
-    position: fixed;
-    top: 100px;
-    left: 600px;
-}
-
-.all-dogs-button {
-    position: fixed;
-    top: 30px;
-    left:430px
+ .breed-comp {
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    left: 35%;
+ }
+ .breed {
+    text-transform: capitalize;
 }
