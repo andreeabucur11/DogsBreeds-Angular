@@ -1,21 +1,20 @@
 .dog-image {
     width:30vw;
     height: auto;
-
 }
 
 ul li a {
     text-transform: capitalize;
     font-family: Arial, Helvetica, sans-serif;
-    
-    
 }
- .breed-comp {
+
+ .breed-container {
     position: absolute;
     width: 300px;
     height: 200px;
     left: 35%;
  }
- .breed {
+
+ .capitalize {
     text-transform: capitalize;
 }

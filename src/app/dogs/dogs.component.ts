@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DogsService } from './dogs.service';
+import { Dog } from '../dog.interface';
+import { DogService } from './dogs.service';
 
 @Component({
 	selector: 'app-dogs',
@@ -8,11 +9,18 @@ import { DogsService } from './dogs.service';
 })
 export class DogsComponent implements OnInit {
 
-	public dogs: any = {};
+	public dogs: Dog = {
+		message: {},
+		status: ""
+	};
 
-	constructor(private readonly dogsService: DogsService) { }
+	constructor(private readonly dogsService: DogService) { }
 
 	public async ngOnInit(){
+		this.getDogs();
+	}
+
+	public getDogs(){
 		this.dogsService.getDogs().subscribe(
 			(data) => this.dogs = data.message
 		)

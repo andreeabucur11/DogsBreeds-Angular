@@ -1,42 +1,44 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { DogsService } from '../dogs/dogs.service';
+import { DogService } from '../dogs/dogs.service';
 
 @Component({
-  selector: 'app-sub-breed',
-  templateUrl: './sub-breed.component.html',
-  styleUrls: ['./sub-breed.component.css']
+	selector: 'app-sub-breed',
+	templateUrl: './sub-breed.component.html',
+	styleUrls: ['./sub-breed.component.css']
 })
 export class SubBreedComponent implements OnInit {
 
-  public subBreed: string = "";
-	public breed: string = "";
-  public imagePath: string = "";
+	public subBreedName: string = "";
+	public breedName: string = "";
+	public imagePath: string = "";
 
-  constructor(
-    private readonly activatedRoute: ActivatedRoute,
-    private readonly dogsService: DogsService,
-    private readonly router: Router
-    ) { }
-
-  public async ngOnInit() {
-    this.activatedRoute.params.subscribe(
+	constructor(
+		private readonly activatedRoute: ActivatedRoute,
+		private readonly dogsService: DogService,
+		private readonly router: Router
+	) {
+		this.activatedRoute.params.subscribe(
 			(params: Params) => {
-				this.breed = params['name'];
-        this.subBreed = params['sub-breed'];
+				this.breedName = params['name'];
+				this.subBreedName = params['sub-breed'];
 			}
 		)
-   
-    this.dogsService.getImageBySubBreed(this.breed, this.subBreed).subscribe(
-      (data) => {
-        this.imagePath = data.message;
-      },
-      (error) => {
+	}
+
+	public ngOnInit() {
+		this.getImageBySubBreed(this.subBreedName);
+	}
+
+	public getImageBySubBreed(subBreed: string){
+		this.dogsService.getImageBySubBreed(this.breedName, this.subBreedName).subscribe(
+			(data) => {
+				this.imagePath = data.message;
+			},
+			(error) => {
 				this.router.navigate(['**'])
 			}
-    )
-
-    
-  }
+		)
+	}
 
 }

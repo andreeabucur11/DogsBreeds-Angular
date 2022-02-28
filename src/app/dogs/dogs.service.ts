@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable({
 	providedIn: 'root'
 })
-export class DogsService {
+export class DogService {
 
 	public baseUrl = "https://dog.ceo/api";
 
@@ -13,22 +13,17 @@ export class DogsService {
 
 	public getDogs(): Observable<any> {
 		return this.httpClient.get<any>(this.baseUrl + '/breeds/list/all');
-
 	}
 
-	public getSubBreeds(breed: string) : Observable<any> {
-		return this.httpClient.get<any>(`${this.baseUrl}/breed/${breed}/list`);
-
-
+	public getSubBreeds(breedName: string) : Observable<any> {
+		return this.httpClient.get<any>(`${this.baseUrl}/breed/${breedName}/list`);
 	}
 
-	public getImageByBreed(breed: string): Observable<any> {
-		return this.httpClient.get<any>(`https://dog.ceo/api/breed/${breed}/images/random`);
-	
+	public getImageByBreed(breedName: string): Observable<any> {
+		return this.httpClient.get<any>(`https://dog.ceo/api/breed/${breedName}/images/random`);
 	}
 
-	public getImageBySubBreed(breed: string, subBreed: string): Observable<any> {
-		return this.httpClient.get<any>(`https://dog.ceo/api/breed/${breed}/${subBreed}/images/random`);
-
+	public getImageBySubBreed(breedName: string, subBreedName: string): Observable<any> {
+		return this.httpClient.get<any>(`https://dog.ceo/api/breed/${breedName}/${subBreedName}/images/random`);
 	}
 }

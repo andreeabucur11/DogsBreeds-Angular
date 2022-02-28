@@ -1,6 +1,6 @@
 <button class="all-dogs-button" [routerLink]="['']">All dogs</button>
-<div class="breed-comp">
-	<h1 class="breed">{{breed}}</h1>
+<div class="breed-container">
+	<h1 class="capitalize">{{breedName}}</h1>
 	<img class="dog-image" src={{imagePath}} />
 	<br /><br />
 	<div class="sub-breeds">
@@ -8,7 +8,7 @@
 		<ul>
 			<ng-container *ngFor="let subBreed of subBreeds">
 				<li>
-					<a [routerLink]="['/breed',breed, subBreed]">{{subBreed}}</a>
+					<a [routerLink]="['/breed',breedName, subBreed]">{{subBreed}}</a>
 				</li>
 			</ng-container>
 		</ul>

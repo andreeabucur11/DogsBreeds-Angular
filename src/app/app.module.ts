@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { DogsComponent } from './dogs/dogs.component';
-import { DogComponent } from './dog/dog.component';
+import { BreedComponent } from './breed/breed.component';
 import { RouterModule } from '@angular/router';
 import { AppRoutes } from './app.routing';
 import { SubBreedComponent } from './sub-breed/sub-breed.component';
@@ -14,7 +14,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
   declarations: [
     AppComponent,
     DogsComponent,
-    DogComponent,
+    BreedComponent,
     SubBreedComponent,
     NotFoundComponent
   ],

@@ -2,11 +2,12 @@
     width:30vw;
     height: auto;
 }
-.breed{
+
+.capitalize{
     text-transform: capitalize;
 }
 
-.sub-breed-comp {
+.sub-breed-container {
     position: absolute;
     width: 300px;
     height: 200px;

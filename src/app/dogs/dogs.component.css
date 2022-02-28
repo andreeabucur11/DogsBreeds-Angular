@@ -8,12 +8,10 @@ ul {
 .dogs-list {
     position: relative;
     left: 8%;
-    
 }
 
 ul li a {
     text-transform: capitalize;
     font-family: Arial, Helvetica, sans-serif;
-    
 }
 
