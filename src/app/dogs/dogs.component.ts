@@ -28,7 +28,6 @@ export class DogsComponent implements OnInit {
 	public prepareDogs(){
 		this.dogsService.getDogs().subscribe(
 			(data) => {
-				console.log(data);
 				this.dogs = data.message;
 				this.allDogs = data.message;
 			}
