@@ -10,9 +10,14 @@ import { DogService } from './dogs.service';
 export class DogsComponent implements OnInit {
 
 	public dogs: Dog = {
-		message: {},
-		status: ""
+		message: {}
 	};
+
+	public allDogs: Dog = {
+		message: {}
+	}
+
+	public searchString: string = "";
 
 	constructor(private readonly dogsService: DogService) { }
 
@@ -22,8 +27,28 @@ export class DogsComponent implements OnInit {
 
 	public prepareDogs(){
 		this.dogsService.getDogs().subscribe(
-			(data) => this.dogs = data.message
+			(data) => {
+				console.log(data);
+				this.dogs = data.message;
+				this.allDogs = data.message;
+			}
 		)
+	}
+
+	public filterDogs(){
+		let dogsArray = Object.entries(this.allDogs);
+		let filteredArr = dogsArray.filter(
+			([key]) => {
+				return key.includes(this.searchString);
+			}
+		);
+		let newDogsArr: Dog = {
+			message: {}
+		}
+		for(let breed of filteredArr){
+			newDogsArr.message[breed[0].toString()] = breed[1];
+		}
+		this.dogs = newDogsArr.message;
 	}
 
 }

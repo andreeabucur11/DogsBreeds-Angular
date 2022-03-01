@@ -1,4 +1,7 @@
 <h1 style="text-align: center;">Dogs</h1><br />
+
+<input  [(ngModel)]="searchString" (ngModelChange)="filterDogs()"  class="search-bar" type="text" placeholder="Search..">
+
 <ul class="dogs-list">
 	<ng-container *ngFor="let breed of dogs | keyvalue">
 		<li>

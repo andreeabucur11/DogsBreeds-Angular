@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { AppRoutes } from './app.routing';
 import { SubBreedComponent } from './sub-breed/sub-breed.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(AppRoutes)
+    RouterModule.forRoot(AppRoutes),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -15,3 +15,7 @@ ul li a {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.search-bar {
+    position: relative;
+    margin-left: 10%;
+}

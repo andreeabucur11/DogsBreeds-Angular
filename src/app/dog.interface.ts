@@ -1,4 +1,3 @@
 export interface Dog{
-    message: Object,
-    status: string
+    message: any
 }
