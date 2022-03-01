@@ -1,0 +1,8 @@
+<h1 style="text-align: center;">Dogs</h1><br />
+<ul class="dogs-list">
+	<ng-container *ngFor="let breed of dogs | keyvalue">
+		<li>
+			<a [routerLink]="['/breed',breed.key]">{{breed.key}}</a>
+		</li>
+	</ng-container>
+</ul>

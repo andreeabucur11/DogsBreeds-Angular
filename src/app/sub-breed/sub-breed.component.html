@@ -1,0 +1,8 @@
+<button [routerLink]="['']">All dogs</button>
+<div class="sub-breed-container">
+    <a [routerLink]="['/breed',breedName]" class="capitalize">
+        <h1>{{breedName}}</h1>
+    </a>
+    <h2 class="capitalize">{{subBreedName}}</h2>
+    <img class="dog-image" src={{imagePath}} /><br />
+</div>
