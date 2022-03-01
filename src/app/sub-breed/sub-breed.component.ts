@@ -27,11 +27,11 @@ export class SubBreedComponent implements OnInit {
 	}
 
 	public ngOnInit() {
-		this.getImageBySubBreed(this.subBreedName);
+		this.prepareImageBySubBreedName(this.subBreedName);
 	}
 
-	public getImageBySubBreed(subBreed: string){
-		this.dogsService.getImageBySubBreed(this.breedName, this.subBreedName).subscribe(
+	public prepareImageBySubBreedName(subBreed: string){
+		this.dogsService.getImagePathBySubBreed(this.breedName, this.subBreedName).subscribe(
 			(data) => {
 				this.imagePath = data.message;
 			},

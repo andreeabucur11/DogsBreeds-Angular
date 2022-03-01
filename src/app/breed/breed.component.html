@@ -4,9 +4,9 @@
 	<img class="dog-image" src={{imagePath}} />
 	<br /><br />
 	<div class="sub-breeds">
-		<h3 *ngIf="subBreeds.length">Sub-breeds:</h3>
+		<h3 *ngIf="subBreedNames.length">Sub-breeds:</h3>
 		<ul>
-			<ng-container *ngFor="let subBreed of subBreeds">
+			<ng-container *ngFor="let subBreed of subBreedNames">
 				<li>
 					<a [routerLink]="['/breed',breedName, subBreed]">{{subBreed}}</a>
 				</li>

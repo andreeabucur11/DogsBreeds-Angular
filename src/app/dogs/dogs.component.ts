@@ -16,11 +16,11 @@ export class DogsComponent implements OnInit {
 
 	constructor(private readonly dogsService: DogService) { }
 
-	public async ngOnInit(){
-		this.getDogs();
+	public ngOnInit(){
+		this.prepareDogs();
 	}
 
-	public getDogs(){
+	public prepareDogs(){
 		this.dogsService.getDogs().subscribe(
 			(data) => this.dogs = data.message
 		)

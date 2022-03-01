@@ -10,7 +10,7 @@ import { DogService } from '../dogs/dogs.service';
 })
 export class BreedComponent implements OnInit {
 
-	public subBreeds: string[] = [];
+	public subBreedNames: string[] = [];
 	public breedName: string = "";
 	public imagePath: string = "";
 
@@ -26,25 +26,24 @@ export class BreedComponent implements OnInit {
 		);
 	}
 
-	public async ngOnInit() {
-		this.getSubBreeds(this.breedName);
-		this.getImageByBreed(this.breedName);
+	public ngOnInit() {
+		this.prepareSubBreedNames(this.breedName);
+		this.prepareImagePath(this.breedName);
 	}
 
-	public getSubBreeds(breedName: string) {
-		this.dogService.getSubBreeds(this.breedName).subscribe(
+	public prepareSubBreedNames(breedName: string) {
+		this.dogService.getSubBreedNames(this.breedName).subscribe(
 			(data) => {
-				this.subBreeds = data.message;
+				this.subBreedNames = data.message;
 			},
 			(error) => {
 				this.router.navigate(['**'])
 			}
 		);
-
 	}
 
-	public getImageByBreed(breedName: string) {
-		this.dogService.getImageByBreed(this.breedName).subscribe(
+	public prepareImagePath(breedName: string) {
+		this.dogService.getImagePathByBreed(this.breedName).subscribe(
 			(data) => {
 				this.imagePath = data.message;
 			},

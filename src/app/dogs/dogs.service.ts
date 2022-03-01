@@ -15,15 +15,15 @@ export class DogService {
 		return this.httpClient.get<any>(this.baseUrl + '/breeds/list/all');
 	}
 
-	public getSubBreeds(breedName: string) : Observable<any> {
+	public getSubBreedNames(breedName: string) : Observable<any> {
 		return this.httpClient.get<any>(`${this.baseUrl}/breed/${breedName}/list`);
 	}
 
-	public getImageByBreed(breedName: string): Observable<any> {
-		return this.httpClient.get<any>(`https://dog.ceo/api/breed/${breedName}/images/random`);
+	public getImagePathByBreed(breedName: string): Observable<any> {
+		return this.httpClient.get<any>(`${this.baseUrl}/breed/${breedName}/images/random`);
 	}
 
-	public getImageBySubBreed(breedName: string, subBreedName: string): Observable<any> {
-		return this.httpClient.get<any>(`https://dog.ceo/api/breed/${breedName}/${subBreedName}/images/random`);
+	public getImagePathBySubBreed(breedName: string, subBreedName: string): Observable<any> {
+		return this.httpClient.get<any>(`${this.baseUrl}/breed/${breedName}/${subBreedName}/images/random`);
 	}
 }
