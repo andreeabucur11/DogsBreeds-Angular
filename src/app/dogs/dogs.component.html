@@ -5,7 +5,7 @@
 <ul class="dogs-list">
 	<ng-container *ngFor="let breed of dogs | keyvalue ">
 		<li>
-			<a [routerLink]="['/breed', breed.key]" [innerHtml]="breed.key | highlighter : searchString"></a>
+			<a [routerLink]="['/breed', breed.key]" [innerHtml]="transform(breed.key)"></a>
 		</li>
 	</ng-container>
 </ul>

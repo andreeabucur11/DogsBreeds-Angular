@@ -50,4 +50,16 @@ export class DogsComponent implements OnInit {
 		this.dogs = newDogsArr.message;
 	}
 
+	public transform(wholeText: string): string {
+		if (!this.searchString) {
+		  return wholeText[0].toUpperCase() + wholeText.slice(1);
+		}
+	  
+		const re = new RegExp(this.searchString, 'gi');
+		wholeText = wholeText[0].toUpperCase() + wholeText.slice(1);
+		wholeText = wholeText.replace(re, '<mark class="highlighter">$&</mark>');
+		
+		return wholeText;
+	  }
+
 }

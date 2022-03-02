@@ -10,7 +10,6 @@ import { AppRoutes } from './app.routing';
 import { SubBreedComponent } from './sub-breed/sub-breed.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { FormsModule } from '@angular/forms';
-import { HighlighterPipe } from './highlighter.pipe';
 
 @NgModule({
   declarations: [
@@ -18,8 +17,7 @@ import { HighlighterPipe } from './highlighter.pipe';
     DogsComponent,
     BreedComponent,
     SubBreedComponent,
-    NotFoundComponent,
-    HighlighterPipe
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
