@@ -3,9 +3,9 @@
 <input  [(ngModel)]="searchString" (ngModelChange)="filterDogs()"  class="search-bar" type="text" placeholder="Search..">
 
 <ul class="dogs-list">
-	<ng-container *ngFor="let breed of dogs | keyvalue">
+	<ng-container *ngFor="let breed of dogs | keyvalue ">
 		<li>
-			<a [routerLink]="['/breed',breed.key]">{{breed.key}}</a>
+			<a [routerLink]="['/breed', breed.key]" [innerHtml]="breed.key | highlighter : searchString"></a>
 		</li>
 	</ng-container>
 </ul>
