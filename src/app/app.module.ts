@@ -10,6 +10,7 @@ import { AppRoutes } from './app.routing';
 import { SubBreedComponent } from './sub-breed/sub-breed.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { FormsModule } from '@angular/forms';
+import { FilterDogsPipe } from './filter-dogs.pipe';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     DogsComponent,
     BreedComponent,
     SubBreedComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    FilterDogsPipe
   ],
   imports: [
     BrowserModule,

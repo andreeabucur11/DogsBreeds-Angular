@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Dog } from '../dog.interface';
+import { Dog } from '../dog';
 import { DogService } from './dogs.service';
 
 @Component({
@@ -9,14 +9,9 @@ import { DogService } from './dogs.service';
 })
 export class DogsComponent implements OnInit {
 
-	public dogs: Dog = {
-		message: {}
-	};
+	public filteredDogs: Dog[] = []
 
-	public allDogs: Dog = {
-		message: {}
-	}
-
+	public allDogs: Dog[] = [];
 	public searchString: string = "";
 
 	constructor(private readonly dogsService: DogService) { }
@@ -28,27 +23,32 @@ export class DogsComponent implements OnInit {
 	public prepareDogs(){
 		this.dogsService.getDogs().subscribe(
 			(data) => {
-				this.dogs = data.message;
-				this.allDogs = data.message;
+				this.prepareDogsArray(data.message);
+				this.allDogs = this.filteredDogs;
+				console.log(this.allDogs);
+
 			}
 		)
+		
 	}
 
-	public filterDogs(){
-		let dogsArray = Object.entries(this.allDogs);
-		let filteredArr = dogsArray.filter(
-			([key]) => {
-				return key.includes(this.searchString);
-			}
-		);
-		let newDogsArr: Dog = {
-			message: {}
+	public prepareDogsArray(data: any) {
+		for(const key in data){
+			this.filteredDogs.push(new Dog({
+				breedName: key,
+				subBreedNames: data[key]
+			}))
 		}
-		for(let breed of filteredArr){
-			newDogsArr.message[breed[0].toString()] = breed[1];
-		}
-		this.dogs = newDogsArr.message;
 	}
+
+	// public filterDogs(event: any){
+	// 	const searchString: string = event.target.value;
+	// 	this.filteredDogs = this.allDogs.filter(
+	// 		(dog: Dog) => {
+	// 			return dog.breedName?.includes(searchString);
+	// 		}
+	// 	)
+	// }
 
 	public transform(wholeText: string): string {
 		if (!this.searchString) {
