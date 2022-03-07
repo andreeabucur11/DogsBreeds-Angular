@@ -10,8 +10,7 @@ ul {
     left: 8%;
 }
 
-ul li a {
-    text-transform: capitalize;
-    font-family: Arial, Helvetica, sans-serif;
+.search-bar {
+    position: relative;
+    margin-left: 10%;
 }
-

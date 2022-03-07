@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Dog } from '../dog.interface';
+import { Dog } from '../dog';
 import { DogService } from './dogs.service';
 
 @Component({
@@ -9,21 +9,31 @@ import { DogService } from './dogs.service';
 })
 export class DogsComponent implements OnInit {
 
-	public dogs: Dog = {
-		message: {},
-		status: ""
-	};
+	public dogs: Dog[] = []
 
-	constructor(private readonly dogsService: DogService) { }
+	public searchString: string = "";
+
+	constructor(private readonly dogService: DogService) { }
 
 	public ngOnInit(){
 		this.prepareDogs();
 	}
 
 	public prepareDogs(){
-		this.dogsService.getDogs().subscribe(
-			(data) => this.dogs = data.message
+		this.dogService.getDogs().subscribe(
+			(data) => {
+				this.prepareDogsArray(data.message);
+			}
 		)
+	}
+
+	public prepareDogsArray(data: any) {
+		for(const key in data){
+			this.dogs.push(new Dog({
+				breedName: key,
+				subBreedNames: data[key]
+			}))
+		}
 	}
 
 }
