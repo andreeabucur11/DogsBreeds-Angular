@@ -11,6 +11,7 @@ import { SubBreedComponent } from './sub-breed/sub-breed.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { FormsModule } from '@angular/forms';
 import { FilterDogsPipe } from './filter-dogs.pipe';
+import { HighlighterPipe } from './highlighter.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FilterDogsPipe } from './filter-dogs.pipe';
     BreedComponent,
     SubBreedComponent,
     NotFoundComponent,
-    FilterDogsPipe
+    FilterDogsPipe,
+    HighlighterPipe
   ],
   imports: [
     BrowserModule,
