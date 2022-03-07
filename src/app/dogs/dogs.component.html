@@ -3,7 +3,7 @@
 <input [(ngModel)]="searchString"  class="search-bar" type="text" placeholder="Search..">
 
 <ul class="dogs-list">
-	<ng-container *ngFor="let breed of filteredDogs | filterDogs: searchString">
+	<ng-container *ngFor="let breed of dogs | filterDogs: searchString">
 		<li>
 			<a [routerLink]="['/breed', breed.breedName]" [innerHtml]="breed.breedName | highlighter: searchString"></a>
 		</li> 
